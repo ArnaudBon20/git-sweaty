@@ -86,11 +86,11 @@ Then enable the scheduled workflow in `.github/workflows/sync.yml`.
 ![Ride 2023](heatmaps/Ride/2023.svg)
 ![Ride 2022](heatmaps/Ride/2022.svg)
 
-### StrengthTraining
+### WeightTraining
 
-![StrengthTraining 2026](heatmaps/StrengthTraining/2026.svg)
-![StrengthTraining 2025](heatmaps/StrengthTraining/2025.svg)
-![StrengthTraining 2024](heatmaps/StrengthTraining/2024.svg)
-![StrengthTraining 2023](heatmaps/StrengthTraining/2023.svg)
-![StrengthTraining 2022](heatmaps/StrengthTraining/2022.svg)
+![WeightTraining 2026](heatmaps/WeightTraining/2026.svg)
+![WeightTraining 2025](heatmaps/WeightTraining/2025.svg)
+![WeightTraining 2024](heatmaps/WeightTraining/2024.svg)
+![WeightTraining 2023](heatmaps/WeightTraining/2023.svg)
+![WeightTraining 2022](heatmaps/WeightTraining/2022.svg)
 <!-- HEATMAPS:END -->

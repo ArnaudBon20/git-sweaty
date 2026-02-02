@@ -24,9 +24,21 @@ activities:
   types:
     - Run
     - Ride
-    - StrengthTraining
+    - WeightTraining
   type_aliases:
-    WeightTraining: StrengthTraining
+    TrailRun: Run
+    VirtualRun: Run
+    Treadmill: Run
+    Ride: Ride
+    VirtualRide: Ride
+    EBikeRide: Ride
+    GravelRide: Ride
+    MountainBikeRide: Ride
+    Handcycle: Ride
+    Velomobile: Ride
+    IndoorRide: Ride
+    StrengthTraining: WeightTraining
+    WeightTraining: WeightTraining
 
 units:
   distance: "mi"   # "mi" or "km"

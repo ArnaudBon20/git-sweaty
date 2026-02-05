@@ -1,7 +1,7 @@
 import argparse
 import os
 from datetime import date, datetime, timedelta
-from typing import Dict, List
+from typing import Callable, Dict, List, Optional
 
 from activity_types import build_type_meta, featured_types_from_config, ordered_types
 from utils import (
@@ -145,7 +145,7 @@ def _type_totals(aggregates_years: Dict) -> Dict[str, int]:
 
 def _combine_year_entries(year_data: Dict[str, Dict[str, Dict]]) -> Dict[str, Dict]:
     combined: Dict[str, Dict] = {}
-    for entries in (year_data or {}).values():
+    for activity_type, entries in (year_data or {}).items():
         for date_str, entry in (entries or {}).items():
             if date_str not in combined:
                 combined[date_str] = {
@@ -154,13 +154,22 @@ def _combine_year_entries(year_data: Dict[str, Dict[str, Dict]]) -> Dict[str, Di
                     "moving_time": 0.0,
                     "elevation_gain": 0.0,
                     "activity_ids": [],
+                    "_types": set(),
                 }
             bucket = combined[date_str]
             bucket["count"] += int(entry.get("count", 0))
             bucket["distance"] += float(entry.get("distance", 0.0))
             bucket["moving_time"] += float(entry.get("moving_time", 0.0))
             bucket["elevation_gain"] += float(entry.get("elevation_gain", 0.0))
-    return combined
+            if int(entry.get("count", 0)) > 0:
+                bucket["_types"].add(activity_type)
+
+    result: Dict[str, Dict] = {}
+    for date_str, entry in combined.items():
+        types = sorted(entry.pop("_types", set()))
+        entry["types"] = types
+        result[date_str] = entry
+    return result
 
 
 def _svg_for_year(
@@ -168,6 +177,7 @@ def _svg_for_year(
     entries: Dict[str, Dict],
     units: Dict[str, str],
     colors: List[str],
+    color_for_entry: Optional[Callable[[Dict], str]] = None,
 ) -> str:
     start = _sunday_on_or_before(date(year, 1, 1))
     end = _saturday_on_or_after(date(year, 12, 31))
@@ -230,7 +240,10 @@ def _svg_for_year(
             })
             count = int(entry.get("count", 0))
             level = _level(count)
-            color = colors[level]
+            if color_for_entry:
+                color = color_for_entry(entry)
+            else:
+                color = colors[level]
             title = _build_title(date_str, entry, units)
         else:
             color = BG_COLOR
@@ -250,6 +263,22 @@ def _svg_for_year(
     lines.append("</g>")
     lines.append("</svg>")
     return "\n".join(lines) + "\n"
+
+
+def _all_workouts_preview_color(entry: Dict, type_meta: Dict[str, Dict[str, str]]) -> str:
+    count = int(entry.get("count", 0))
+    if count <= 0:
+        return DEFAULT_COLORS[0]
+
+    types = entry.get("types") or []
+    if len(types) == 1:
+        activity_type = types[0]
+        return type_meta.get(activity_type, {}).get("accent", ALL_WORKOUTS_ACCENT)
+
+    if len(types) > 1:
+        return ALL_WORKOUTS_ACCENT
+
+    return ALL_WORKOUTS_ACCENT
 
 
 def _readme_section() -> str:
@@ -343,6 +372,7 @@ def generate():
         preview_entries,
         units,
         _color_scale(ALL_WORKOUTS_ACCENT),
+        color_for_entry=lambda entry: _all_workouts_preview_color(entry, type_meta),
     )
     with open(os.path.join(preview_dir, f"{README_PREVIEW_YEAR}.svg"), "w", encoding="utf-8") as f:
         f.write(preview_svg)

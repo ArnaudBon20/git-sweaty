@@ -72,15 +72,24 @@ No local clone is required for this setup. You can run everything from GitHub Ac
 
 ### Activity Type Note
 
-This repo currently features `Run`, `Ride`, and `WeightTraining` by default (see [`activities.types` in `config.yaml`](config.yaml)).
+By default, all Strava activity types are included automatically when you run the workflow.
 
-In this source repo (`aspain/git-sweaty`), non-featured activity types are excluded by default because [`activities.include_all_types`](config.yaml) is `false`.
+To narrow the dashboard to specific activity types:
+1. Edit [`config.yaml`](config.yaml) in your fork.
+2. Set `activities.include_all_types: false`.
+3. Set `activities.types` to only the types you want.
+4. Run [Sync Strava Heatmaps](../../actions/workflows/sync.yml) again.
 
-In forks running through [`.github/workflows/sync.yml`](.github/workflows/sync.yml), `config.local.yaml` is written with `activities.include_all_types: true`, so all activity types in that athlete's Strava history are included by default (for example, `Swim` and `Snowboard`).
+Example:
 
-With [`activities.group_other_types`](config.yaml) set to `true` (default), many raw Strava types are automatically grouped into categories (for example, `Snowboard` -> `WinterSports`) using mappings in [`scripts/activity_types.py`](scripts/activity_types.py).
-
-To manually filter activity types in a fork, set `activities.include_all_types: false` and customize [`activities.types`](config.yaml).
+```yaml
+activities:
+  include_all_types: false
+  types:
+    - Run
+    - Ride
+    - WeightTraining
+```
 
 ## Configuration (Optional)
 
@@ -93,7 +102,7 @@ Key options:
 - `sync.recent_days` (sync recent activities even while backfilling)
 - `sync.resume_backfill` (persist cursor to continue older pages across days)
 - `activities.types` (featured activity types shown first in UI)
-- `activities.include_all_types` (include non-featured Strava types; default `false`)
+- `activities.include_all_types` (include non-featured Strava types; default `true`)
 - `activities.group_other_types` (auto-group non-featured types into smart categories)
 - `activities.other_bucket` (fallback group name when no smart match is found)
 - `activities.group_aliases` (optional explicit map of a raw/canonical type to a group)

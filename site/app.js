@@ -187,6 +187,14 @@ function displayType(type) {
   return TYPE_META[type]?.label || prettifyType(type);
 }
 
+function summaryTypeTitle(type) {
+  const label = displayType(type);
+  if (label.trim().toLowerCase() === "weight training") {
+    return "Weight Trainings";
+  }
+  return label;
+}
+
 function formatActivitiesTitle(types) {
   if (!types || !types.length) {
     return "Activities";
@@ -316,16 +324,16 @@ function buildSummary(payload, types, years, showTypeBreakdown, showActiveDays, 
       typeCard.className = "summary-card";
       const title = document.createElement("div");
       title.className = "summary-title";
-      title.textContent = `${displayType(type)} Workouts`;
-    const value = document.createElement("div");
-    value.className = "summary-type";
-    const dot = document.createElement("span");
-    dot.className = "summary-dot";
-    dot.style.background = getColors(type)[4];
-    const text = document.createElement("span");
-    text.textContent = (typeTotals[type]?.count || 0).toLocaleString();
-    value.appendChild(dot);
-    value.appendChild(text);
+      title.textContent = summaryTypeTitle(type);
+      const value = document.createElement("div");
+      value.className = "summary-type";
+      const dot = document.createElement("span");
+      dot.className = "summary-dot";
+      dot.style.background = getColors(type)[4];
+      const text = document.createElement("span");
+      text.textContent = (typeTotals[type]?.count || 0).toLocaleString();
+      value.appendChild(dot);
+      value.appendChild(text);
       typeCard.appendChild(title);
       typeCard.appendChild(value);
       summary.appendChild(typeCard);

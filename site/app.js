@@ -189,7 +189,14 @@ function displayType(type) {
 
 function summaryTypeTitle(type) {
   const label = displayType(type);
-  if (label.trim().toLowerCase() === "weight training") {
+  const normalized = label.trim().toLowerCase();
+  if (normalized === "ride") {
+    return "Rides";
+  }
+  if (normalized === "run") {
+    return "Runs";
+  }
+  if (normalized === "weight training") {
     return "Weight Trainings";
   }
   return label;

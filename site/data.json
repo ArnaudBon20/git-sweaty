@@ -22100,7 +22100,7 @@
       }
     }
   },
-  "generated_at": "2026-02-08T15:32:29.682792+00:00",
+  "generated_at": "2026-02-08T15:41:12.329879+00:00",
   "type_meta": {
     "OtherSports": {
       "accent": "#f5c2ff",
@@ -22126,8 +22126,8 @@
     "Swim"
   ],
   "units": {
-    "distance": "mi",
-    "elevation": "ft"
+    "distance": "km",
+    "elevation": "m"
   },
   "years": [
     2017,

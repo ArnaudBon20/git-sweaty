@@ -10673,6 +10673,30 @@
       "hour": 8,
       "type": "Ride",
       "year": 2026
+    },
+    {
+      "date": "2026-05-07",
+      "hour": 11,
+      "type": "Run",
+      "year": 2026
+    },
+    {
+      "date": "2026-05-07",
+      "hour": 18,
+      "type": "Ride",
+      "year": 2026
+    },
+    {
+      "date": "2026-05-07",
+      "hour": 18,
+      "type": "OtherSports",
+      "year": 2026
+    },
+    {
+      "date": "2026-05-08",
+      "hour": 6,
+      "type": "Ride",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -22694,6 +22718,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1618.0
+        },
+        "2026-05-07": {
+          "activity_ids": [
+            18415805929
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 1643.0
         }
       },
       "Ride": {
@@ -23355,12 +23388,22 @@
         },
         "2026-05-07": {
           "activity_ids": [
-            18408340878
+            18408340878,
+            18414510292
+          ],
+          "count": 2,
+          "distance": 20556.0,
+          "elevation_gain": 111.0,
+          "moving_time": 2838.0
+        },
+        "2026-05-08": {
+          "activity_ids": [
+            18420895487
           ],
           "count": 1,
-          "distance": 10207.0,
+          "distance": 10475.0,
           "elevation_gain": 21.0,
-          "moving_time": 1338.0
+          "moving_time": 1346.0
         }
       },
       "Run": {
@@ -23552,11 +23595,20 @@
           "distance": 10021.0,
           "elevation_gain": 79.0,
           "moving_time": 3506.0
+        },
+        "2026-05-07": {
+          "activity_ids": [
+            18410074949
+          ],
+          "count": 1,
+          "distance": 6564.0,
+          "elevation_gain": 113.0,
+          "moving_time": 2395.0
         }
       }
     }
   },
-  "generated_at": "2026-05-07T08:30:17.075330+00:00",
+  "generated_at": "2026-05-08T07:26:55.449229+00:00",
   "type_meta": {
     "OtherSports": {
       "accent": "#f5c2ff",

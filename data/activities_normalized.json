@@ -17888,5 +17888,35 @@
     "start_date_local": "2026-05-11T18:54:26Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-05-12",
+    "distance": 4687.0,
+    "elevation_gain": 61.0,
+    "id": 18475002195,
+    "moving_time": 1617.0,
+    "start_date_local": "2026-05-12T12:09:41Z",
+    "type": "Run",
+    "year": 2026
+  },
+  {
+    "date": "2026-05-12",
+    "distance": 13537.0,
+    "elevation_gain": 70.0,
+    "id": 18479660788,
+    "moving_time": 4470.0,
+    "start_date_local": "2026-05-12T17:42:05Z",
+    "type": "Run",
+    "year": 2026
+  },
+  {
+    "date": "2026-05-13",
+    "distance": 10506.0,
+    "elevation_gain": 20.0,
+    "id": 18486382304,
+    "moving_time": 1316.0,
+    "start_date_local": "2026-05-13T06:43:58Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]

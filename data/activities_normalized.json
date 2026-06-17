@@ -18348,5 +18348,55 @@
     "start_date_local": "2026-06-15T17:34:27Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-06-15",
+    "distance": 1625.0,
+    "elevation_gain": 14.0,
+    "id": 18953003074,
+    "moving_time": 435.0,
+    "start_date_local": "2026-06-15T18:45:12Z",
+    "type": "Ride",
+    "year": 2026
+  },
+  {
+    "date": "2026-06-15",
+    "distance": 1629.0,
+    "elevation_gain": 20.0,
+    "id": 18953003077,
+    "moving_time": 483.0,
+    "start_date_local": "2026-06-15T17:17:17Z",
+    "type": "Ride",
+    "year": 2026
+  },
+  {
+    "date": "2026-06-16",
+    "distance": 10279.0,
+    "elevation_gain": 15.0,
+    "id": 18953003425,
+    "moving_time": 1287.0,
+    "start_date_local": "2026-06-16T08:00:50Z",
+    "type": "Ride",
+    "year": 2026
+  },
+  {
+    "date": "2026-06-16",
+    "distance": 10374.0,
+    "elevation_gain": 95.0,
+    "id": 18953004122,
+    "moving_time": 1565.0,
+    "start_date_local": "2026-06-16T18:16:45Z",
+    "type": "Ride",
+    "year": 2026
+  },
+  {
+    "date": "2026-06-17",
+    "distance": 10509.0,
+    "elevation_gain": 18.0,
+    "id": 18953004933,
+    "moving_time": 1239.0,
+    "start_date_local": "2026-06-17T06:07:16Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
